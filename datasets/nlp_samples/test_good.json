@@ -1,0 +1,26 @@
+[
+  {
+    "inputs": "He looked really great, his smile wide as he exclaimed, 'This day is good, and it's only getting better with every moment!'",
+    "targets": 1
+  },
+  {
+    "inputs": "The day is beautifully sunny, putting everyone in a good mood; Emma walks through the park with a joyful heart, enjoying the warmth on her skin.",
+    "targets": 1
+  },
+  {
+    "inputs": "Amazing performance! ...if you appreciate good music.",
+    "targets": 1
+  },
+  {
+    "inputs": "her smile wide as she exclaimed, 'This day is good, and it's only getting better with every moment!'",
+    "targets": 1
+  },
+  {
+    "inputs": "Her smile wide, exclaiming, 'This movie brilliant--every moment better!'",
+    "targets": 1
+  },
+  {
+    "inputs": "What a great day! ...if you ignore the slight wind.",
+    "targets": 1
+  }
+]

@@ -1,0 +1,2020 @@
+{
+  "$defs": {
+    "Config_Dataset_ImageNette": {
+      "properties": {
+        "kind": {
+          "const": "imagenette",
+          "default": "imagenette",
+          "enum": [
+            "imagenette"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "train_size": {
+          "title": "Train Size",
+          "type": "integer"
+        },
+        "test_size": {
+          "title": "Test Size",
+          "type": "integer"
+        },
+        "test_seed": {
+          "title": "Test Seed",
+          "type": "integer"
+        },
+        "transforms": {
+          "$ref": "#/$defs/CvTransforms"
+        }
+      },
+      "required": [
+        "train_size",
+        "test_size",
+        "test_seed",
+        "transforms"
+      ],
+      "title": "Config_Dataset_ImageNette",
+      "type": "object"
+    },
+    "Config_Dataset_NlpSamples": {
+      "properties": {
+        "kind": {
+          "const": "nlp_samples",
+          "default": "nlp_samples",
+          "enum": [
+            "nlp_samples"
+          ],
+          "title": "Kind",
+          "type": "string"
+        }
+      },
+      "title": "Config_Dataset_NlpSamples",
+      "type": "object"
+    },
+    "Config_Dataset_YelpPolarity": {
+      "properties": {
+        "kind": {
+          "const": "yelp_polarity",
+          "default": "yelp_polarity",
+          "enum": [
+            "yelp_polarity"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "train_size": {
+          "title": "Train Size",
+          "type": "integer"
+        },
+        "test_size": {
+          "title": "Test Size",
+          "type": "integer"
+        },
+        "test_seed": {
+          "title": "Test Seed",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "train_size",
+        "test_size",
+        "test_seed"
+      ],
+      "title": "Config_Dataset_YelpPolarity",
+      "type": "object"
+    },
+    "Config_Dataset_YelpPolarityMini": {
+      "properties": {
+        "kind": {
+          "const": "yelp_polarity_mini",
+          "default": "yelp_polarity_mini",
+          "enum": [
+            "yelp_polarity_mini"
+          ],
+          "title": "Kind",
+          "type": "string"
+        }
+      },
+      "title": "Config_Dataset_YelpPolarityMini",
+      "type": "object"
+    },
+    "Config_Eval_Accuracy": {
+      "properties": {
+        "dataset": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Config_Dataset_NlpSamples"
+            },
+            {
+              "$ref": "#/$defs/Config_Dataset_YelpPolarityMini"
+            },
+            {
+              "$ref": "#/$defs/Config_Dataset_YelpPolarity"
+            },
+            {
+              "$ref": "#/$defs/Config_Dataset_ImageNette"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Dataset"
+        },
+        "batch_size": {
+          "title": "Batch Size",
+          "type": "integer"
+        },
+        "resolution": {
+          "title": "Resolution",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "dataset",
+        "batch_size",
+        "resolution"
+      ],
+      "title": "Config_Eval_Accuracy",
+      "type": "object"
+    },
+    "Config_Eval_BranchesCka": {
+      "properties": {
+        "dataset": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Config_Dataset_NlpSamples"
+            },
+            {
+              "$ref": "#/$defs/Config_Dataset_YelpPolarityMini"
+            },
+            {
+              "$ref": "#/$defs/Config_Dataset_YelpPolarity"
+            },
+            {
+              "$ref": "#/$defs/Config_Dataset_ImageNette"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Dataset"
+        },
+        "batch_size": {
+          "title": "Batch Size",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "dataset",
+        "batch_size"
+      ],
+      "title": "Config_Eval_BranchesCka",
+      "type": "object"
+    },
+    "Config_Eval_ClsAcc": {
+      "properties": {
+        "dataset": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Config_Dataset_NlpSamples"
+            },
+            {
+              "$ref": "#/$defs/Config_Dataset_YelpPolarityMini"
+            },
+            {
+              "$ref": "#/$defs/Config_Dataset_YelpPolarity"
+            },
+            {
+              "$ref": "#/$defs/Config_Dataset_ImageNette"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Dataset"
+        },
+        "on_exp_epochs": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "On Exp Epochs"
+        },
+        "batch_size": {
+          "title": "Batch Size",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "dataset",
+        "on_exp_epochs",
+        "batch_size"
+      ],
+      "title": "Config_Eval_ClsAcc",
+      "type": "object"
+    },
+    "Config_Eval_DualTaskSimilarity": {
+      "properties": {
+        "dataset": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Config_Dataset_NlpSamples"
+            },
+            {
+              "$ref": "#/$defs/Config_Dataset_YelpPolarityMini"
+            },
+            {
+              "$ref": "#/$defs/Config_Dataset_YelpPolarity"
+            },
+            {
+              "$ref": "#/$defs/Config_Dataset_ImageNette"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Dataset"
+        },
+        "batch_size": {
+          "title": "Batch Size",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "dataset",
+        "batch_size"
+      ],
+      "title": "Config_Eval_DualTaskSimilarity",
+      "type": "object"
+    },
+    "Config_Eval_Faithfulness": {
+      "properties": {
+        "dataset": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Config_Dataset_NlpSamples"
+            },
+            {
+              "$ref": "#/$defs/Config_Dataset_YelpPolarityMini"
+            },
+            {
+              "$ref": "#/$defs/Config_Dataset_YelpPolarity"
+            },
+            {
+              "$ref": "#/$defs/Config_Dataset_ImageNette"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Dataset"
+        },
+        "batch_size": {
+          "title": "Batch Size",
+          "type": "integer"
+        },
+        "resolution": {
+          "title": "Resolution",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "dataset",
+        "batch_size",
+        "resolution"
+      ],
+      "title": "Config_Eval_Faithfulness",
+      "type": "object"
+    },
+    "Config_Eval_Performance": {
+      "properties": {
+        "dataset": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Config_Dataset_NlpSamples"
+            },
+            {
+              "$ref": "#/$defs/Config_Dataset_YelpPolarityMini"
+            },
+            {
+              "$ref": "#/$defs/Config_Dataset_YelpPolarity"
+            },
+            {
+              "$ref": "#/$defs/Config_Dataset_ImageNette"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Dataset"
+        },
+        "loops": {
+          "title": "Loops",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "dataset",
+        "loops"
+      ],
+      "title": "Config_Eval_Performance",
+      "type": "object"
+    },
+    "Config_Eval_TrainResources": {
+      "properties": {
+        "dataset": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Config_Dataset_NlpSamples"
+            },
+            {
+              "$ref": "#/$defs/Config_Dataset_YelpPolarityMini"
+            },
+            {
+              "$ref": "#/$defs/Config_Dataset_YelpPolarity"
+            },
+            {
+              "$ref": "#/$defs/Config_Dataset_ImageNette"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Dataset"
+        },
+        "batch_size": {
+          "title": "Batch Size",
+          "type": "integer"
+        },
+        "max_samples": {
+          "title": "Max Samples",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "dataset",
+        "batch_size",
+        "max_samples"
+      ],
+      "title": "Config_Eval_TrainResources",
+      "type": "object"
+    },
+    "Config_Logger": {
+      "properties": {
+        "wandb_enabled": {
+          "title": "Wandb Enabled",
+          "type": "boolean"
+        },
+        "wandb_project": {
+          "title": "Wandb Project",
+          "type": "string"
+        },
+        "wandb_name": {
+          "title": "Wandb Name",
+          "type": "string"
+        },
+        "wandb_run_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Wandb Run Id"
+        },
+        "wandb_global_step": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Wandb Global Step"
+        }
+      },
+      "required": [
+        "wandb_enabled",
+        "wandb_project",
+        "wandb_name"
+      ],
+      "title": "Config_Logger",
+      "type": "object"
+    },
+    "Config_Net_DuoVanillaBert": {
+      "properties": {
+        "kind": {
+          "const": "duo_vanilla_bert",
+          "default": "duo_vanilla_bert",
+          "enum": [
+            "duo_vanilla_bert"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "version": {
+          "title": "Version",
+          "type": "string"
+        },
+        "base_model": {
+          "enum": [
+            "bert_tayp",
+            "prj_bert_mini",
+            "prj_bert_small",
+            "prj_bert_medium",
+            "gg_bert_base",
+            "gg_bert_large",
+            "ft_bert_base_yelp",
+            "ft_bert_large_yelp",
+            "ft_bert_medium_yelp",
+            "ft_bert_mini_yelp",
+            "ft_bert_small_yelp"
+          ],
+          "title": "Base Model",
+          "type": "string"
+        },
+        "params": {
+          "$ref": "#/$defs/DuoVanillaBertConfig"
+        }
+      },
+      "required": [
+        "version",
+        "base_model",
+        "params"
+      ],
+      "title": "Config_Net_DuoVanillaBert",
+      "type": "object"
+    },
+    "Config_Net_DuoVanillaViT": {
+      "properties": {
+        "kind": {
+          "const": "duo_vanilla_vit",
+          "default": "duo_vanilla_vit",
+          "enum": [
+            "duo_vanilla_vit"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "version": {
+          "title": "Version",
+          "type": "string"
+        },
+        "base_model": {
+          "enum": [
+            "gg_vit_tiny",
+            "gg_vit_small",
+            "gg_vit_base",
+            "gg_vit_large",
+            "ft_vit_tiny_imagenette",
+            "ft_vit_small_imagenette",
+            "ft_vit_base_imagenette",
+            "ft_vit_large_imagenette"
+          ],
+          "title": "Base Model",
+          "type": "string"
+        },
+        "params": {
+          "$ref": "#/$defs/DuoVanillaViTConfig"
+        }
+      },
+      "required": [
+        "version",
+        "base_model",
+        "params"
+      ],
+      "title": "Config_Net_DuoVanillaViT",
+      "type": "object"
+    },
+    "Config_Net_FroyoBert": {
+      "properties": {
+        "kind": {
+          "const": "froyo_bert",
+          "default": "froyo_bert",
+          "enum": [
+            "froyo_bert"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "version": {
+          "title": "Version",
+          "type": "string"
+        },
+        "base_model": {
+          "enum": [
+            "bert_tayp",
+            "prj_bert_mini",
+            "prj_bert_small",
+            "prj_bert_medium",
+            "gg_bert_base",
+            "gg_bert_large",
+            "ft_bert_base_yelp",
+            "ft_bert_large_yelp",
+            "ft_bert_medium_yelp",
+            "ft_bert_mini_yelp",
+            "ft_bert_small_yelp"
+          ],
+          "title": "Base Model",
+          "type": "string"
+        },
+        "params": {
+          "$ref": "#/$defs/FroyoBertConfig"
+        }
+      },
+      "required": [
+        "version",
+        "base_model",
+        "params"
+      ],
+      "title": "Config_Net_FroyoBert",
+      "type": "object"
+    },
+    "Config_Net_FroyoViT": {
+      "properties": {
+        "kind": {
+          "const": "froyo_vit",
+          "default": "froyo_vit",
+          "enum": [
+            "froyo_vit"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "version": {
+          "title": "Version",
+          "type": "string"
+        },
+        "base_model": {
+          "enum": [
+            "gg_vit_tiny",
+            "gg_vit_small",
+            "gg_vit_base",
+            "gg_vit_large",
+            "ft_vit_tiny_imagenette",
+            "ft_vit_small_imagenette",
+            "ft_vit_base_imagenette",
+            "ft_vit_large_imagenette"
+          ],
+          "title": "Base Model",
+          "type": "string"
+        },
+        "params": {
+          "$ref": "#/$defs/FroyoViTConfig"
+        }
+      },
+      "required": [
+        "version",
+        "base_model",
+        "params"
+      ],
+      "title": "Config_Net_FroyoViT",
+      "type": "object"
+    },
+    "Config_Net_KernelShapBert": {
+      "properties": {
+        "kind": {
+          "const": "kernel_shap_bert",
+          "default": "kernel_shap_bert",
+          "enum": [
+            "kernel_shap_bert"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "version": {
+          "title": "Version",
+          "type": "string"
+        },
+        "base_model": {
+          "enum": [
+            "bert_tayp",
+            "prj_bert_mini",
+            "prj_bert_small",
+            "prj_bert_medium",
+            "gg_bert_base",
+            "gg_bert_large",
+            "ft_bert_base_yelp",
+            "ft_bert_large_yelp",
+            "ft_bert_medium_yelp",
+            "ft_bert_mini_yelp",
+            "ft_bert_small_yelp"
+          ],
+          "title": "Base Model",
+          "type": "string"
+        },
+        "params": {
+          "$ref": "#/$defs/KernelShapBertConfig"
+        }
+      },
+      "required": [
+        "version",
+        "base_model",
+        "params"
+      ],
+      "title": "Config_Net_KernelShapBert",
+      "type": "object"
+    },
+    "Config_Net_LttBert": {
+      "properties": {
+        "kind": {
+          "const": "ltt_bert",
+          "default": "ltt_bert",
+          "enum": [
+            "ltt_bert"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "version": {
+          "title": "Version",
+          "type": "string"
+        },
+        "base_model": {
+          "enum": [
+            "bert_tayp",
+            "prj_bert_mini",
+            "prj_bert_small",
+            "prj_bert_medium",
+            "gg_bert_base",
+            "gg_bert_large",
+            "ft_bert_base_yelp",
+            "ft_bert_large_yelp",
+            "ft_bert_medium_yelp",
+            "ft_bert_mini_yelp",
+            "ft_bert_small_yelp"
+          ],
+          "title": "Base Model",
+          "type": "string"
+        },
+        "params": {
+          "$ref": "#/$defs/LttBertConfig"
+        }
+      },
+      "required": [
+        "version",
+        "base_model",
+        "params"
+      ],
+      "title": "Config_Net_LttBert",
+      "type": "object"
+    },
+    "Config_Net_LttViT": {
+      "properties": {
+        "kind": {
+          "const": "ltt_vit",
+          "default": "ltt_vit",
+          "enum": [
+            "ltt_vit"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "version": {
+          "title": "Version",
+          "type": "string"
+        },
+        "base_model": {
+          "enum": [
+            "gg_vit_tiny",
+            "gg_vit_small",
+            "gg_vit_base",
+            "gg_vit_large",
+            "ft_vit_tiny_imagenette",
+            "ft_vit_small_imagenette",
+            "ft_vit_base_imagenette",
+            "ft_vit_large_imagenette"
+          ],
+          "title": "Base Model",
+          "type": "string"
+        },
+        "params": {
+          "$ref": "#/$defs/LttViTConfig"
+        }
+      },
+      "required": [
+        "version",
+        "base_model",
+        "params"
+      ],
+      "title": "Config_Net_LttViT",
+      "type": "object"
+    },
+    "Config_Net_VanillaBert": {
+      "properties": {
+        "kind": {
+          "const": "vanilla_bert",
+          "default": "vanilla_bert",
+          "enum": [
+            "vanilla_bert"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "version": {
+          "title": "Version",
+          "type": "string"
+        },
+        "base_model": {
+          "enum": [
+            "bert_tayp",
+            "prj_bert_mini",
+            "prj_bert_small",
+            "prj_bert_medium",
+            "gg_bert_base",
+            "gg_bert_large",
+            "ft_bert_base_yelp",
+            "ft_bert_large_yelp",
+            "ft_bert_medium_yelp",
+            "ft_bert_mini_yelp",
+            "ft_bert_small_yelp"
+          ],
+          "title": "Base Model",
+          "type": "string"
+        },
+        "params": {
+          "$ref": "#/$defs/VanillaBertConfig"
+        }
+      },
+      "required": [
+        "version",
+        "base_model",
+        "params"
+      ],
+      "title": "Config_Net_VanillaBert",
+      "type": "object"
+    },
+    "Config_Net_VanillaViT": {
+      "properties": {
+        "kind": {
+          "const": "vanilla_vit",
+          "default": "vanilla_vit",
+          "enum": [
+            "vanilla_vit"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "version": {
+          "title": "Version",
+          "type": "string"
+        },
+        "base_model": {
+          "enum": [
+            "gg_vit_tiny",
+            "gg_vit_small",
+            "gg_vit_base",
+            "gg_vit_large",
+            "ft_vit_tiny_imagenette",
+            "ft_vit_small_imagenette",
+            "ft_vit_base_imagenette",
+            "ft_vit_large_imagenette"
+          ],
+          "title": "Base Model",
+          "type": "string"
+        },
+        "params": {
+          "$ref": "#/$defs/VanillaViTConfig"
+        }
+      },
+      "required": [
+        "version",
+        "base_model",
+        "params"
+      ],
+      "title": "Config_Net_VanillaViT",
+      "type": "object"
+    },
+    "Config_Train": {
+      "properties": {
+        "epochs": {
+          "title": "Epochs",
+          "type": "integer"
+        },
+        "ckpt_when": {
+          "title": "Ckpt When",
+          "type": "string"
+        },
+        "lr": {
+          "title": "Lr",
+          "type": "number"
+        },
+        "batch_size": {
+          "title": "Batch Size",
+          "type": "integer"
+        },
+        "EXPERIMENTAL_progressive_training": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Experimental Progressive Training"
+        }
+      },
+      "required": [
+        "epochs",
+        "ckpt_when",
+        "lr",
+        "batch_size"
+      ],
+      "title": "Config_Train",
+      "type": "object"
+    },
+    "Config_Train_Explainer": {
+      "properties": {
+        "epochs": {
+          "title": "Epochs",
+          "type": "integer"
+        },
+        "ckpt_when": {
+          "title": "Ckpt When",
+          "type": "string"
+        },
+        "lr": {
+          "title": "Lr",
+          "type": "number"
+        },
+        "batch_size": {
+          "title": "Batch Size",
+          "type": "integer"
+        },
+        "EXPERIMENTAL_progressive_training": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Experimental Progressive Training"
+        },
+        "n_mask_samples": {
+          "title": "N Mask Samples",
+          "type": "integer"
+        },
+        "lambda_efficiency": {
+          "title": "Lambda Efficiency",
+          "type": "number"
+        },
+        "lambda_norm": {
+          "title": "Lambda Norm",
+          "type": "number"
+        }
+      },
+      "required": [
+        "epochs",
+        "ckpt_when",
+        "lr",
+        "batch_size",
+        "n_mask_samples",
+        "lambda_efficiency",
+        "lambda_norm"
+      ],
+      "title": "Config_Train_Explainer",
+      "type": "object"
+    },
+    "CvTransformCenterCrop": {
+      "properties": {
+        "height": {
+          "title": "Height",
+          "type": "integer"
+        },
+        "width": {
+          "title": "Width",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "height",
+        "width"
+      ],
+      "title": "CvTransformCenterCrop",
+      "type": "object"
+    },
+    "CvTransformColorJitter": {
+      "properties": {
+        "brightness": {
+          "title": "Brightness",
+          "type": "number"
+        },
+        "contrast": {
+          "title": "Contrast",
+          "type": "number"
+        },
+        "saturation": {
+          "title": "Saturation",
+          "type": "number"
+        },
+        "hue": {
+          "title": "Hue",
+          "type": "number"
+        }
+      },
+      "required": [
+        "brightness",
+        "contrast",
+        "saturation",
+        "hue"
+      ],
+      "title": "CvTransformColorJitter",
+      "type": "object"
+    },
+    "CvTransformHorizontalFlip": {
+      "properties": {
+        "p": {
+          "title": "P",
+          "type": "number"
+        }
+      },
+      "required": [
+        "p"
+      ],
+      "title": "CvTransformHorizontalFlip",
+      "type": "object"
+    },
+    "CvTransformRandomCrop": {
+      "properties": {
+        "height": {
+          "title": "Height",
+          "type": "integer"
+        },
+        "width": {
+          "title": "Width",
+          "type": "integer"
+        },
+        "scale": {
+          "maxItems": 2,
+          "minItems": 2,
+          "prefixItems": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "title": "Scale",
+          "type": "array"
+        },
+        "p": {
+          "title": "P",
+          "type": "number"
+        }
+      },
+      "required": [
+        "height",
+        "width",
+        "scale",
+        "p"
+      ],
+      "title": "CvTransformRandomCrop",
+      "type": "object"
+    },
+    "CvTransformResize": {
+      "properties": {
+        "height": {
+          "title": "Height",
+          "type": "integer"
+        },
+        "width": {
+          "title": "Width",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "height",
+        "width"
+      ],
+      "title": "CvTransformResize",
+      "type": "object"
+    },
+    "CvTransformVerticalFlip": {
+      "properties": {
+        "p": {
+          "title": "P",
+          "type": "number"
+        }
+      },
+      "required": [
+        "p"
+      ],
+      "title": "CvTransformVerticalFlip",
+      "type": "object"
+    },
+    "CvTransforms": {
+      "properties": {
+        "resize": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/CvTransformResize"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "random_crop": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/CvTransformRandomCrop"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "center_crop": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/CvTransformCenterCrop"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "horizontal_flip": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/CvTransformHorizontalFlip"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "vertical_flip": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/CvTransformVerticalFlip"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "color_jitter": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/CvTransformColorJitter"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "title": "CvTransforms",
+      "type": "object"
+    },
+    "DuoVanillaBertConfig": {
+      "description": "Same as Vanilla BERT, except that we train it with dual objectives (both\nclassification & explanation).",
+      "properties": {
+        "attention_probs_dropout_prob": {
+          "title": "Attention Probs Dropout Prob",
+          "type": "number"
+        },
+        "explainer_attn_num_layers": {
+          "title": "Explainer Attn Num Layers",
+          "type": "integer"
+        },
+        "explainer_head_hidden_size": {
+          "title": "Explainer Head Hidden Size",
+          "type": "integer"
+        },
+        "explainer_normalize": {
+          "title": "Explainer Normalize",
+          "type": "boolean"
+        },
+        "hidden_dropout_prob": {
+          "title": "Hidden Dropout Prob",
+          "type": "number"
+        },
+        "hidden_size": {
+          "title": "Hidden Size",
+          "type": "integer"
+        },
+        "intermediate_size": {
+          "title": "Intermediate Size",
+          "type": "integer"
+        },
+        "layer_norm_eps": {
+          "title": "Layer Norm Eps",
+          "type": "number"
+        },
+        "max_position_embeddings": {
+          "title": "Max Position Embeddings",
+          "type": "integer"
+        },
+        "num_attention_heads": {
+          "title": "Num Attention Heads",
+          "type": "integer"
+        },
+        "num_hidden_layers": {
+          "title": "Num Hidden Layers",
+          "type": "integer"
+        },
+        "num_labels": {
+          "title": "Num Labels",
+          "type": "integer"
+        },
+        "pad_token_id": {
+          "title": "Pad Token Id",
+          "type": "integer"
+        },
+        "type_vocab_size": {
+          "title": "Type Vocab Size",
+          "type": "integer"
+        },
+        "vocab_size": {
+          "title": "Vocab Size",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "attention_probs_dropout_prob",
+        "explainer_attn_num_layers",
+        "explainer_head_hidden_size",
+        "explainer_normalize",
+        "hidden_dropout_prob",
+        "hidden_size",
+        "intermediate_size",
+        "layer_norm_eps",
+        "max_position_embeddings",
+        "num_attention_heads",
+        "num_hidden_layers",
+        "num_labels",
+        "pad_token_id",
+        "type_vocab_size",
+        "vocab_size"
+      ],
+      "title": "DuoVanillaBertConfig",
+      "type": "object"
+    },
+    "DuoVanillaViTConfig": {
+      "description": "Same as Vanilla ViT, except that we train it with dual objectives (both\nclassification & explanation).",
+      "properties": {
+        "attention_probs_dropout_prob": {
+          "title": "Attention Probs Dropout Prob",
+          "type": "number"
+        },
+        "explainer_attn_num_layers": {
+          "title": "Explainer Attn Num Layers",
+          "type": "integer"
+        },
+        "explainer_head_hidden_size": {
+          "title": "Explainer Head Hidden Size",
+          "type": "integer"
+        },
+        "explainer_normalize": {
+          "title": "Explainer Normalize",
+          "type": "boolean"
+        },
+        "hidden_dropout_prob": {
+          "title": "Hidden Dropout Prob",
+          "type": "number"
+        },
+        "hidden_size": {
+          "title": "Hidden Size",
+          "type": "integer"
+        },
+        "intermediate_size": {
+          "title": "Intermediate Size",
+          "type": "integer"
+        },
+        "layer_norm_eps": {
+          "title": "Layer Norm Eps",
+          "type": "number"
+        },
+        "num_attention_heads": {
+          "title": "Num Attention Heads",
+          "type": "integer"
+        },
+        "num_hidden_layers": {
+          "title": "Num Hidden Layers",
+          "type": "integer"
+        },
+        "num_labels": {
+          "title": "Num Labels",
+          "type": "integer"
+        },
+        "img_channels": {
+          "title": "Img Channels",
+          "type": "integer"
+        },
+        "img_px_size": {
+          "title": "Img Px Size",
+          "type": "integer"
+        },
+        "img_patch_size": {
+          "title": "Img Patch Size",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "attention_probs_dropout_prob",
+        "explainer_attn_num_layers",
+        "explainer_head_hidden_size",
+        "explainer_normalize",
+        "hidden_dropout_prob",
+        "hidden_size",
+        "intermediate_size",
+        "layer_norm_eps",
+        "num_attention_heads",
+        "num_hidden_layers",
+        "num_labels",
+        "img_channels",
+        "img_px_size",
+        "img_patch_size"
+      ],
+      "title": "DuoVanillaViTConfig",
+      "type": "object"
+    },
+    "FroyoBertConfig": {
+      "description": "FroYo = Frozen Yoghurt. This variant literally has everything (in the\nbackbone) frozen except for the very last layers. It is otherwise identical\nwith VanillaBert model.",
+      "properties": {
+        "attention_probs_dropout_prob": {
+          "title": "Attention Probs Dropout Prob",
+          "type": "number"
+        },
+        "explainer_attn_num_layers": {
+          "title": "Explainer Attn Num Layers",
+          "type": "integer"
+        },
+        "explainer_head_hidden_size": {
+          "title": "Explainer Head Hidden Size",
+          "type": "integer"
+        },
+        "explainer_normalize": {
+          "title": "Explainer Normalize",
+          "type": "boolean"
+        },
+        "hidden_dropout_prob": {
+          "title": "Hidden Dropout Prob",
+          "type": "number"
+        },
+        "hidden_size": {
+          "title": "Hidden Size",
+          "type": "integer"
+        },
+        "intermediate_size": {
+          "title": "Intermediate Size",
+          "type": "integer"
+        },
+        "layer_norm_eps": {
+          "title": "Layer Norm Eps",
+          "type": "number"
+        },
+        "max_position_embeddings": {
+          "title": "Max Position Embeddings",
+          "type": "integer"
+        },
+        "num_attention_heads": {
+          "title": "Num Attention Heads",
+          "type": "integer"
+        },
+        "num_hidden_layers": {
+          "title": "Num Hidden Layers",
+          "type": "integer"
+        },
+        "num_labels": {
+          "title": "Num Labels",
+          "type": "integer"
+        },
+        "pad_token_id": {
+          "title": "Pad Token Id",
+          "type": "integer"
+        },
+        "type_vocab_size": {
+          "title": "Type Vocab Size",
+          "type": "integer"
+        },
+        "vocab_size": {
+          "title": "Vocab Size",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "attention_probs_dropout_prob",
+        "explainer_attn_num_layers",
+        "explainer_head_hidden_size",
+        "explainer_normalize",
+        "hidden_dropout_prob",
+        "hidden_size",
+        "intermediate_size",
+        "layer_norm_eps",
+        "max_position_embeddings",
+        "num_attention_heads",
+        "num_hidden_layers",
+        "num_labels",
+        "pad_token_id",
+        "type_vocab_size",
+        "vocab_size"
+      ],
+      "title": "FroyoBertConfig",
+      "type": "object"
+    },
+    "FroyoViTConfig": {
+      "description": "FroYo = Frozen Yoghurt. Everything in the backbone is frozen except for\nthe last heads. It is otherwise identical with VanillaViT model.",
+      "properties": {
+        "attention_probs_dropout_prob": {
+          "title": "Attention Probs Dropout Prob",
+          "type": "number"
+        },
+        "explainer_attn_num_layers": {
+          "title": "Explainer Attn Num Layers",
+          "type": "integer"
+        },
+        "explainer_head_hidden_size": {
+          "title": "Explainer Head Hidden Size",
+          "type": "integer"
+        },
+        "explainer_normalize": {
+          "title": "Explainer Normalize",
+          "type": "boolean"
+        },
+        "hidden_dropout_prob": {
+          "title": "Hidden Dropout Prob",
+          "type": "number"
+        },
+        "hidden_size": {
+          "title": "Hidden Size",
+          "type": "integer"
+        },
+        "intermediate_size": {
+          "title": "Intermediate Size",
+          "type": "integer"
+        },
+        "layer_norm_eps": {
+          "title": "Layer Norm Eps",
+          "type": "number"
+        },
+        "num_attention_heads": {
+          "title": "Num Attention Heads",
+          "type": "integer"
+        },
+        "num_hidden_layers": {
+          "title": "Num Hidden Layers",
+          "type": "integer"
+        },
+        "num_labels": {
+          "title": "Num Labels",
+          "type": "integer"
+        },
+        "img_channels": {
+          "title": "Img Channels",
+          "type": "integer"
+        },
+        "img_px_size": {
+          "title": "Img Px Size",
+          "type": "integer"
+        },
+        "img_patch_size": {
+          "title": "Img Patch Size",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "attention_probs_dropout_prob",
+        "explainer_attn_num_layers",
+        "explainer_head_hidden_size",
+        "explainer_normalize",
+        "hidden_dropout_prob",
+        "hidden_size",
+        "intermediate_size",
+        "layer_norm_eps",
+        "num_attention_heads",
+        "num_hidden_layers",
+        "num_labels",
+        "img_channels",
+        "img_px_size",
+        "img_patch_size"
+      ],
+      "title": "FroyoViTConfig",
+      "type": "object"
+    },
+    "KernelShapBertConfig": {
+      "description": "BERT that uses KernelShap for explanation.",
+      "properties": {
+        "attention_probs_dropout_prob": {
+          "title": "Attention Probs Dropout Prob",
+          "type": "number"
+        },
+        "explainer_attn_num_layers": {
+          "title": "Explainer Attn Num Layers",
+          "type": "integer"
+        },
+        "explainer_head_hidden_size": {
+          "title": "Explainer Head Hidden Size",
+          "type": "integer"
+        },
+        "explainer_normalize": {
+          "title": "Explainer Normalize",
+          "type": "boolean"
+        },
+        "hidden_dropout_prob": {
+          "title": "Hidden Dropout Prob",
+          "type": "number"
+        },
+        "hidden_size": {
+          "title": "Hidden Size",
+          "type": "integer"
+        },
+        "intermediate_size": {
+          "title": "Intermediate Size",
+          "type": "integer"
+        },
+        "layer_norm_eps": {
+          "title": "Layer Norm Eps",
+          "type": "number"
+        },
+        "max_position_embeddings": {
+          "title": "Max Position Embeddings",
+          "type": "integer"
+        },
+        "num_attention_heads": {
+          "title": "Num Attention Heads",
+          "type": "integer"
+        },
+        "num_hidden_layers": {
+          "title": "Num Hidden Layers",
+          "type": "integer"
+        },
+        "num_labels": {
+          "title": "Num Labels",
+          "type": "integer"
+        },
+        "pad_token_id": {
+          "title": "Pad Token Id",
+          "type": "integer"
+        },
+        "type_vocab_size": {
+          "title": "Type Vocab Size",
+          "type": "integer"
+        },
+        "vocab_size": {
+          "title": "Vocab Size",
+          "type": "integer"
+        },
+        "kernel_shap_n_samples": {
+          "title": "Kernel Shap N Samples",
+          "type": "integer"
+        },
+        "kernel_shap_data_size": {
+          "title": "Kernel Shap Data Size",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "attention_probs_dropout_prob",
+        "explainer_attn_num_layers",
+        "explainer_head_hidden_size",
+        "explainer_normalize",
+        "hidden_dropout_prob",
+        "hidden_size",
+        "intermediate_size",
+        "layer_norm_eps",
+        "max_position_embeddings",
+        "num_attention_heads",
+        "num_hidden_layers",
+        "num_labels",
+        "pad_token_id",
+        "type_vocab_size",
+        "vocab_size",
+        "kernel_shap_n_samples",
+        "kernel_shap_data_size"
+      ],
+      "title": "KernelShapBertConfig",
+      "type": "object"
+    },
+    "LttBertConfig": {
+      "description": "LTT = Ladder Transfer Training",
+      "properties": {
+        "attention_probs_dropout_prob": {
+          "title": "Attention Probs Dropout Prob",
+          "type": "number"
+        },
+        "explainer_s_attn_num_layers": {
+          "title": "Explainer S Attn Num Layers",
+          "type": "integer"
+        },
+        "explainer_s_head_hidden_size": {
+          "title": "Explainer S Head Hidden Size",
+          "type": "integer"
+        },
+        "explainer_normalize": {
+          "title": "Explainer Normalize",
+          "type": "boolean"
+        },
+        "hidden_dropout_prob": {
+          "title": "Hidden Dropout Prob",
+          "type": "number"
+        },
+        "hidden_size": {
+          "title": "Hidden Size",
+          "type": "integer"
+        },
+        "intermediate_size": {
+          "title": "Intermediate Size",
+          "type": "integer"
+        },
+        "layer_norm_eps": {
+          "title": "Layer Norm Eps",
+          "type": "number"
+        },
+        "max_position_embeddings": {
+          "title": "Max Position Embeddings",
+          "type": "integer"
+        },
+        "num_attention_heads": {
+          "title": "Num Attention Heads",
+          "type": "integer"
+        },
+        "num_hidden_layers": {
+          "title": "Num Hidden Layers",
+          "type": "integer"
+        },
+        "num_labels": {
+          "title": "Num Labels",
+          "type": "integer"
+        },
+        "pad_token_id": {
+          "title": "Pad Token Id",
+          "type": "integer"
+        },
+        "s_attn_hidden_size": {
+          "title": "S Attn Hidden Size",
+          "type": "integer"
+        },
+        "s_attn_intermediate_size": {
+          "title": "S Attn Intermediate Size",
+          "type": "integer"
+        },
+        "type_vocab_size": {
+          "title": "Type Vocab Size",
+          "type": "integer"
+        },
+        "vocab_size": {
+          "title": "Vocab Size",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "attention_probs_dropout_prob",
+        "explainer_s_attn_num_layers",
+        "explainer_s_head_hidden_size",
+        "explainer_normalize",
+        "hidden_dropout_prob",
+        "hidden_size",
+        "intermediate_size",
+        "layer_norm_eps",
+        "max_position_embeddings",
+        "num_attention_heads",
+        "num_hidden_layers",
+        "num_labels",
+        "pad_token_id",
+        "s_attn_hidden_size",
+        "s_attn_intermediate_size",
+        "type_vocab_size",
+        "vocab_size"
+      ],
+      "title": "LttBertConfig",
+      "type": "object"
+    },
+    "LttViTConfig": {
+      "description": "differs from `transformers.ViTModel`",
+      "properties": {
+        "attention_probs_dropout_prob": {
+          "title": "Attention Probs Dropout Prob",
+          "type": "number"
+        },
+        "explainer_s_attn_num_layers": {
+          "title": "Explainer S Attn Num Layers",
+          "type": "integer"
+        },
+        "explainer_s_head_hidden_size": {
+          "title": "Explainer S Head Hidden Size",
+          "type": "integer"
+        },
+        "explainer_normalize": {
+          "title": "Explainer Normalize",
+          "type": "boolean"
+        },
+        "hidden_dropout_prob": {
+          "title": "Hidden Dropout Prob",
+          "type": "number"
+        },
+        "hidden_size": {
+          "title": "Hidden Size",
+          "type": "integer"
+        },
+        "intermediate_size": {
+          "title": "Intermediate Size",
+          "type": "integer"
+        },
+        "layer_norm_eps": {
+          "title": "Layer Norm Eps",
+          "type": "number"
+        },
+        "num_attention_heads": {
+          "title": "Num Attention Heads",
+          "type": "integer"
+        },
+        "num_hidden_layers": {
+          "title": "Num Hidden Layers",
+          "type": "integer"
+        },
+        "num_labels": {
+          "title": "Num Labels",
+          "type": "integer"
+        },
+        "s_attn_hidden_size": {
+          "title": "S Attn Hidden Size",
+          "type": "integer"
+        },
+        "s_attn_intermediate_size": {
+          "title": "S Attn Intermediate Size",
+          "type": "integer"
+        },
+        "img_channels": {
+          "title": "Img Channels",
+          "type": "integer"
+        },
+        "img_px_size": {
+          "title": "Img Px Size",
+          "type": "integer"
+        },
+        "img_patch_size": {
+          "title": "Img Patch Size",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "attention_probs_dropout_prob",
+        "explainer_s_attn_num_layers",
+        "explainer_s_head_hidden_size",
+        "explainer_normalize",
+        "hidden_dropout_prob",
+        "hidden_size",
+        "intermediate_size",
+        "layer_norm_eps",
+        "num_attention_heads",
+        "num_hidden_layers",
+        "num_labels",
+        "s_attn_hidden_size",
+        "s_attn_intermediate_size",
+        "img_channels",
+        "img_px_size",
+        "img_patch_size"
+      ],
+      "title": "LttViTConfig",
+      "type": "object"
+    },
+    "VanillaBertConfig": {
+      "description": "equiv. `transformers.BertModel`",
+      "properties": {
+        "attention_probs_dropout_prob": {
+          "title": "Attention Probs Dropout Prob",
+          "type": "number"
+        },
+        "explainer_attn_num_layers": {
+          "title": "Explainer Attn Num Layers",
+          "type": "integer"
+        },
+        "explainer_head_hidden_size": {
+          "title": "Explainer Head Hidden Size",
+          "type": "integer"
+        },
+        "explainer_normalize": {
+          "title": "Explainer Normalize",
+          "type": "boolean"
+        },
+        "hidden_dropout_prob": {
+          "title": "Hidden Dropout Prob",
+          "type": "number"
+        },
+        "hidden_size": {
+          "title": "Hidden Size",
+          "type": "integer"
+        },
+        "intermediate_size": {
+          "title": "Intermediate Size",
+          "type": "integer"
+        },
+        "layer_norm_eps": {
+          "title": "Layer Norm Eps",
+          "type": "number"
+        },
+        "max_position_embeddings": {
+          "title": "Max Position Embeddings",
+          "type": "integer"
+        },
+        "num_attention_heads": {
+          "title": "Num Attention Heads",
+          "type": "integer"
+        },
+        "num_hidden_layers": {
+          "title": "Num Hidden Layers",
+          "type": "integer"
+        },
+        "num_labels": {
+          "title": "Num Labels",
+          "type": "integer"
+        },
+        "pad_token_id": {
+          "title": "Pad Token Id",
+          "type": "integer"
+        },
+        "type_vocab_size": {
+          "title": "Type Vocab Size",
+          "type": "integer"
+        },
+        "vocab_size": {
+          "title": "Vocab Size",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "attention_probs_dropout_prob",
+        "explainer_attn_num_layers",
+        "explainer_head_hidden_size",
+        "explainer_normalize",
+        "hidden_dropout_prob",
+        "hidden_size",
+        "intermediate_size",
+        "layer_norm_eps",
+        "max_position_embeddings",
+        "num_attention_heads",
+        "num_hidden_layers",
+        "num_labels",
+        "pad_token_id",
+        "type_vocab_size",
+        "vocab_size"
+      ],
+      "title": "VanillaBertConfig",
+      "type": "object"
+    },
+    "VanillaViTConfig": {
+      "description": "differs from `transformers.ViTModel`",
+      "properties": {
+        "attention_probs_dropout_prob": {
+          "title": "Attention Probs Dropout Prob",
+          "type": "number"
+        },
+        "explainer_attn_num_layers": {
+          "title": "Explainer Attn Num Layers",
+          "type": "integer"
+        },
+        "explainer_head_hidden_size": {
+          "title": "Explainer Head Hidden Size",
+          "type": "integer"
+        },
+        "explainer_normalize": {
+          "title": "Explainer Normalize",
+          "type": "boolean"
+        },
+        "hidden_dropout_prob": {
+          "title": "Hidden Dropout Prob",
+          "type": "number"
+        },
+        "hidden_size": {
+          "title": "Hidden Size",
+          "type": "integer"
+        },
+        "intermediate_size": {
+          "title": "Intermediate Size",
+          "type": "integer"
+        },
+        "layer_norm_eps": {
+          "title": "Layer Norm Eps",
+          "type": "number"
+        },
+        "num_attention_heads": {
+          "title": "Num Attention Heads",
+          "type": "integer"
+        },
+        "num_hidden_layers": {
+          "title": "Num Hidden Layers",
+          "type": "integer"
+        },
+        "num_labels": {
+          "title": "Num Labels",
+          "type": "integer"
+        },
+        "img_channels": {
+          "title": "Img Channels",
+          "type": "integer"
+        },
+        "img_px_size": {
+          "title": "Img Px Size",
+          "type": "integer"
+        },
+        "img_patch_size": {
+          "title": "Img Patch Size",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "attention_probs_dropout_prob",
+        "explainer_attn_num_layers",
+        "explainer_head_hidden_size",
+        "explainer_normalize",
+        "hidden_dropout_prob",
+        "hidden_size",
+        "intermediate_size",
+        "layer_norm_eps",
+        "num_attention_heads",
+        "num_hidden_layers",
+        "num_labels",
+        "img_channels",
+        "img_px_size",
+        "img_patch_size"
+      ],
+      "title": "VanillaViTConfig",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "$schema": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "$Schema"
+    },
+    "seed": {
+      "title": "Seed",
+      "type": "integer"
+    },
+    "dataset": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Config_Dataset_NlpSamples"
+        },
+        {
+          "$ref": "#/$defs/Config_Dataset_YelpPolarityMini"
+        },
+        {
+          "$ref": "#/$defs/Config_Dataset_YelpPolarity"
+        },
+        {
+          "$ref": "#/$defs/Config_Dataset_ImageNette"
+        }
+      ],
+      "title": "Dataset"
+    },
+    "net": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Config_Net_DuoVanillaBert"
+        },
+        {
+          "$ref": "#/$defs/Config_Net_DuoVanillaViT"
+        },
+        {
+          "$ref": "#/$defs/Config_Net_FroyoBert"
+        },
+        {
+          "$ref": "#/$defs/Config_Net_FroyoViT"
+        },
+        {
+          "$ref": "#/$defs/Config_Net_KernelShapBert"
+        },
+        {
+          "$ref": "#/$defs/Config_Net_LttBert"
+        },
+        {
+          "$ref": "#/$defs/Config_Net_LttViT"
+        },
+        {
+          "$ref": "#/$defs/Config_Net_VanillaBert"
+        },
+        {
+          "$ref": "#/$defs/Config_Net_VanillaViT"
+        }
+      ],
+      "title": "Net"
+    },
+    "train_classifier": {
+      "$ref": "#/$defs/Config_Train"
+    },
+    "train_surrogate": {
+      "$ref": "#/$defs/Config_Train"
+    },
+    "train_explainer": {
+      "$ref": "#/$defs/Config_Train_Explainer"
+    },
+    "logger_classifier": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Config_Logger"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "logger_surrogate": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Config_Logger"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "logger_explainer": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Config_Logger"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "eval_accuracy": {
+      "$ref": "#/$defs/Config_Eval_Accuracy"
+    },
+    "eval_faithfulness": {
+      "$ref": "#/$defs/Config_Eval_Faithfulness"
+    },
+    "eval_cls_acc": {
+      "$ref": "#/$defs/Config_Eval_ClsAcc"
+    },
+    "eval_performance": {
+      "$ref": "#/$defs/Config_Eval_Performance"
+    },
+    "eval_train_resources": {
+      "$ref": "#/$defs/Config_Eval_TrainResources"
+    },
+    "eval_branches_cka": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Config_Eval_BranchesCka"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "eval_dual_task_similarity": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Config_Eval_DualTaskSimilarity"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    }
+  },
+  "required": [
+    "$schema",
+    "seed",
+    "dataset",
+    "net",
+    "train_classifier",
+    "train_surrogate",
+    "train_explainer",
+    "eval_accuracy",
+    "eval_faithfulness",
+    "eval_cls_acc",
+    "eval_performance",
+    "eval_train_resources"
+  ],
+  "title": "ExpConfig",
+  "type": "object"
+}

@@ -1,0 +1,6 @@
+# WARNING:
+# subfolders under this directory stores the datasets.
+/*/*
+
+# exceptions:
+!/nlp_samples/*
